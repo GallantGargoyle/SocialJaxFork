@@ -24,7 +24,7 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-#SBATCH --job-name=TestJob
+SBATCH --job-name=SpeedTestJob
 #SBATCH --output=output_%x_%j.out
 #SBATCH --error=error_%x_%j.err
 
@@ -33,5 +33,5 @@ module load cuda/12.9
 
 ### Script for computation ###
 module load anaconda
-source activate socialjax
+source activate SocialJax
 python speed_test/speed_test_random.py
