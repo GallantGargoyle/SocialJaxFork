@@ -52,4 +52,7 @@ def make(env_id: str, **env_kwargs):
         env = Gift(**env_kwargs)
     elif env_id == "lb_foraging":
         env = LBForaging(**env_kwargs)
+    else:
+        raise ValueError(f"Unknown SocialJax environment: {env_id}")
+
     return env
