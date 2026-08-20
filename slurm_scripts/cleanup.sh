@@ -24,9 +24,9 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-#SBATCH --job-name=TestJob
-#SBATCH --output=output_%x_%j.out
-#SBATCH --error=error_%x_%j.err
+SBATCH --job-name=CleanupJob
+SBATCH --output=output_cleanup.out
+SBATCH --error=error_cleanup.err
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
 module load cuda/12.9
