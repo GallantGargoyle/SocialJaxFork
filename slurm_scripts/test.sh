@@ -27,6 +27,7 @@
 #SBATCH --job-name=SpeedTestJob
 #SBATCH --output=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/outs/%x_%j.out
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
+#SBATCH --chdir=/tc1home/FYP/n2501107d/SocialJaxFork/
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
 module load cuda/12.9
@@ -37,6 +38,7 @@ module load anaconda
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate SocialJax
 
+echo "Working directory: $(pwd)"
 echo "Using Python: $CONDA_PREFIX/bin/python"
 
 $CONDA_PREFIX/bin/python speed_test/speed_test_random.py
