@@ -33,5 +33,13 @@ module load cuda/12.9
 
 ### Script for computation ###
 module load anaconda
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate SocialJax
+
+echo "Environment: $CONDA_DEFAULT_ENV"
+echo "Python: $(which python)"
+
+python -c "import jax; print('JAX:', jax.__version__)"
+
 python speed_test/speed_test_random.py
