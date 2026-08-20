@@ -24,7 +24,7 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-SBATCH --job-name=SpeedTestJob
+#SBATCH --job-name=SpeedTestJob
 #SBATCH --output=output_%x_%j.out
 #SBATCH --error=error_%x_%j.err
 

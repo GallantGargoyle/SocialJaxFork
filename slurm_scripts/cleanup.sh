@@ -34,4 +34,4 @@ module load cuda/12.9
 ### Script for computation ###
 module load anaconda
 source activate SocialJax
-python slurm_scripts/cleanup.sh
+python cleanup.py
