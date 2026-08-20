@@ -33,5 +33,5 @@ module load cuda/12.9
 
 ### Script for computation ###
 module load anaconda
-source activate SocialJax
+conda activate SocialJax
 python speed_test/speed_test_random.py
