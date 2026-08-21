@@ -29,7 +29,7 @@
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
-module load cuda/13.0
+module load cuda/12.9
 
 ### Script for computation ###
 module load anaconda
@@ -43,4 +43,4 @@ echo "Using Python: $CONDA_PREFIX/bin/python"
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
 
-$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins reward=common WANDB_MODE=disabled
+$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins WANDB_MODE=disabled
