@@ -24,14 +24,23 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-#SBATCH --job-name=CleanupJob
-#SBATCH --output=output_cleanup.out
-#SBATCH --error=error_cleanup.err
+#SBATCH --job-name=CoinsTestOne
+#SBATCH --output=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/outs/%x_%j.out
+#SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
 module load cuda/12.9
 
 ### Script for computation ###
 module load anaconda
-source activate SocialJax
-python cleanup.py
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate SocialJax
+
+echo "Working directory: $(pwd)"
+echo "Using Python: $CONDA_PREFIX/bin/python"
+
+export PYTHONPATH="$(pwd):$PYTHONPATH"
+
+
+$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins reward=common
