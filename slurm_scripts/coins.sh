@@ -43,4 +43,4 @@ echo "Using Python: $CONDA_PREFIX/bin/python"
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
 
-$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins reward=common
+$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins reward=common WANDB_MODE=disabled
