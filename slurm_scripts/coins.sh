@@ -29,7 +29,7 @@
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
-module load cuda/12.9
+module load cuda/13.0
 
 ### Script for computation ###
 module load anaconda
