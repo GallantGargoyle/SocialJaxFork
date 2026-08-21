@@ -41,6 +41,5 @@ echo "Working directory: $(pwd)"
 echo "Using Python: $CONDA_PREFIX/bin/python"
 
 export PYTHONPATH="$(pwd):$PYTHONPATH"
-export WANDB_MODE=disabled
 
-$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins
+$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env coins WANDB_MODE=disabled
