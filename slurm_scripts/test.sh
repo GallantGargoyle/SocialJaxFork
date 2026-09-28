@@ -24,12 +24,12 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-#SBATCH --job-name=SpeedTestJob
+#SBATCH --job-name=TestJob
 #SBATCH --output=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/outs/%x_%j.out
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
-module load cuda/12.9
+module load cuda/12.5
 
 ### Script for computation ###
 module load anaconda
