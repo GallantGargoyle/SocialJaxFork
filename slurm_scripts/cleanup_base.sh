@@ -7,11 +7,11 @@
 #SBATCH --gres=gpu:1
 
 ### Specify Memory allocate to this job ###
-#SBATCH --mem=10G
+#SBATCH --mem=32G
 
 ### Optional: Default CPU assign = 1; Specify if want to apply more for computation###
 ### Remove 1st # at next line for the option to take effect ###
-##SBATCH --ntasks-per-node=2
+#SBATCH --ntasks-per-node=2
 
 ### Specify number of node to compute ###
 #SBATCH --nodes=1
@@ -44,5 +44,7 @@ export PYTHONPATH="$(pwd):$PYTHONPATH"
 
 export XLA_PYTHON_CLIENT_PREALLOCATE=false
 export XLA_PYTHON_CLIENT_MEM_FRACTION=0.8
+
+
 
 $CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env cleanup WANDB_MODE=disabled

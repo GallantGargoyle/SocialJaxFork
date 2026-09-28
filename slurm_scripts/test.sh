@@ -42,6 +42,14 @@ echo "Using Python: $CONDA_PREFIX/bin/python"
 
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
+nvidia-smi
+echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+pip list 2>/dev/null | grep -i -E "nvidia|jax"
+python -c "import jax; print(jax.devices())"
+
+export TF_CPP_MIN_LOG_LEVEL=0
+export CUDNN_LOGERR_DBG=1
+export CUDNN_LOGDEST_DBG=stderr
 
 # $CONDA_PREFIX/bin/python speed_test/speed_test_random.py
 $CONDA_PREFIX/bin/python test.py
