@@ -29,22 +29,18 @@
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
 ### Must load the required CUDA module if want to use available CUDA in TC1 for computation ###
-module load cuda/13.0
+module load cuda/12.9
 
-### Script for computation ###
+# Computation script
 module load anaconda
-
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate SocialJax
 
-echo "Working directory: $(pwd)"
-echo "Using Python: $CONDA_PREFIX/bin/python"
-
+PY=$CONDA_PREFIX/bin/python
+for d in $CONDA_PREFIX/lib/python3.10/site-packages/nvidia/*/lib; do
+    export LD_LIBRARY_PATH=$d:$LD_LIBRARY_PATH
+done
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-export XLA_PYTHON_CLIENT_PREALLOCATE=false
-export XLA_PYTHON_CLIENT_MEM_FRACTION=0.8
+$PY algorithms/train.py --algo IPPO --env cleanup WANDB_MODE=disabled
 
-
-
-$CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env cleanup WANDB_MODE=disabled
