@@ -42,4 +42,7 @@ echo "Using Python: $CONDA_PREFIX/bin/python"
 
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
+export XLA_PYTHON_CLIENT_PREALLOCATE=false
+export XLA_PYTHON_CLIENT_MEM_FRACTION=0.8
+
 $CONDA_PREFIX/bin/python algorithms/train.py --algo IPPO --env cleanup WANDB_MODE=disabled
