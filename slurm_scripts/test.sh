@@ -32,25 +32,38 @@
 # module load cuda/12.9
 
 ### Script for computation ###
-module load anaconda
+# module load anaconda
 
+# source "$(conda info --base)/etc/profile.d/conda.sh"
+# conda activate SocialJax
+
+# echo "Working directory: $(pwd)"
+# echo "Using Python: $CONDA_PREFIX/bin/python"
+
+# # export PYTHONPATH="$(pwd):$PYTHONPATH"
+
+# nvidia-smi
+# echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+# pip list 2>/dev/null | grep -i -E "nvidia|jax"
+# python -c "import jax; print(jax.devices())"
+
+# export TF_CPP_MIN_LOG_LEVEL=0
+# export CUDNN_LOGERR_DBG=1
+# export CUDNN_LOGDEST_DBG=stderr
+
+# # $CONDA_PREFIX/bin/python speed_test/speed_test_random.py
+# # $CONDA_PREFIX/bin/python test.py
+# python test.py
+
+module load cuda/12.9
+module load anaconda
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate SocialJax
 
-echo "Working directory: $(pwd)"
-echo "Using Python: $CONDA_PREFIX/bin/python"
+PY=$CONDA_PREFIX/bin/python
+for d in $CONDA_PREFIX/lib/python3.10/site-packages/nvidia/*/lib; do
+    export LD_LIBRARY_PATH=$d:$LD_LIBRARY_PATH
+done
+export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-# export PYTHONPATH="$(pwd):$PYTHONPATH"
-
-nvidia-smi
-echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
-pip list 2>/dev/null | grep -i -E "nvidia|jax"
-python -c "import jax; print(jax.devices())"
-
-export TF_CPP_MIN_LOG_LEVEL=0
-export CUDNN_LOGERR_DBG=1
-export CUDNN_LOGDEST_DBG=stderr
-
-# $CONDA_PREFIX/bin/python speed_test/speed_test_random.py
-# $CONDA_PREFIX/bin/python test.py
-python test.py
+$PY test.py
