@@ -42,5 +42,5 @@ for d in $CONDA_PREFIX/lib/python3.10/site-packages/nvidia/*/lib; do
 done
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-$PY algorithms/train.py --algo IPPO --env cleanup WANDB_MODE=disabled
+$PY algorithms/train.py --algo IPPO --env cleanup
 
