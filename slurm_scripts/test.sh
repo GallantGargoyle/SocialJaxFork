@@ -43,4 +43,5 @@ echo "Using Python: $CONDA_PREFIX/bin/python"
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
 
-$CONDA_PREFIX/bin/python speed_test/speed_test_random.py
+# $CONDA_PREFIX/bin/python speed_test/speed_test_random.py
+$CONDA_PREFIX/bin/python test.py
