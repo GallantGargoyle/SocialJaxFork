@@ -11,7 +11,7 @@
 
 ### Optional: Default CPU assign = 1; Specify if want to apply more for computation###
 ### Remove 1st # at next line for the option to take effect ###
-#SBATCH --ntasks-per-node=2
+#SBATCH --ntasks-per-node=16
 
 ### Specify number of node to compute ###
 #SBATCH --nodes=1
@@ -24,7 +24,7 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-#SBATCH --job-name=CleanupTestOne
+#SBATCH --job-name=mappo-cleanup
 #SBATCH --output=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/outs/%x_%j.out
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
@@ -42,5 +42,5 @@ for d in $CONDA_PREFIX/lib/python3.10/site-packages/nvidia/*/lib; do
 done
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-$PY algorithms/train.py --algo IPPO --env cleanup
+$PY algorithms/train.py --algo MAPPO --env cleanup
 
