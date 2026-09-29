@@ -66,4 +66,4 @@ for d in $CONDA_PREFIX/lib/python3.10/site-packages/nvidia/*/lib; do
 done
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-$PY test.sh
+$PY test.py
