@@ -24,7 +24,7 @@
 #SBATCH --time=360
 
 ### Specify name for the job, filename format for output and error ###
-#SBATCH --job-name=mappo-cleanup
+#SBATCH --job-name=ippo-7-agents
 #SBATCH --output=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/outs/%x_%j.out
 #SBATCH --error=/tc1home/FYP/n2501107d/SocialJaxFork/slurm_logs/errs/%x_%j.err
 
