@@ -6,7 +6,7 @@ defaults:
 "ENV_NAME": "clean_up"
 "NUM_ENVS": 4
 "NUM_STEPS": 100
-"TOTAL_TIMESTEPS": 3e8
+"TOTAL_TIMESTEPS": 3e6 # was 3e8, seems like a lot
 "NUM_MINIBATCHES": 4
 
 "ENV_KWARGS": 

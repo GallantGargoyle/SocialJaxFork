@@ -11,7 +11,7 @@
 
 ### Optional: Default CPU assign = 1; Specify if want to apply more for computation###
 ### Remove 1st # at next line for the option to take effect ###
-#SBATCH --ntasks-per-node=16
+#SBATCH --ntasks-per-node=32
 
 ### Specify number of node to compute ###
 #SBATCH --nodes=1
@@ -42,5 +42,5 @@ for d in $CONDA_PREFIX/lib/python3.10/site-packages/nvidia/*/lib; do
 done
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-$PY algorithms/train.py --algo MAPPO --env cleanup
+$PY algorithms/train.py --algo IPPO --env cleanup
 
