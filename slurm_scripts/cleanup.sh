@@ -11,7 +11,7 @@
 
 ### Optional: Default CPU assign = 1; Specify if want to apply more for computation###
 ### Remove 1st # at next line for the option to take effect ###
-#SBATCH --ntasks-per-node=32
+#SBATCH --ntasks-per-node=16
 
 ### Specify number of node to compute ###
 #SBATCH --nodes=1
